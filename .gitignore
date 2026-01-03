@@ -2,4 +2,4 @@ build/
 /node_modules
 .DS_Store
 .idea/
-smol_build.sh/
+smol_build.sh
