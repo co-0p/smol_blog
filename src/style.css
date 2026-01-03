@@ -56,15 +56,22 @@ dt {
 	margin-bottom: 3rem;
 }
 
-pre, c {
-	padding: 4px 8px;
-	background-color: #b5b7e5;
+pre, code{
+	background-color: #EAF1F7;
 	border-radius: 8px;
 	white-space: pre-wrap;
 	word-wrap: break-word;
 	overflow-x: auto;
 	font-family: monospace;
-	font-size: 1.2em;
+	font-size: 1.1em;
+}
+
+code {
+		padding: 4px 8px;
+}
+
+pre {
+	padding: 8px 16px;
 }
 
 footer {

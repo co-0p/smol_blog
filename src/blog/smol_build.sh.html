@@ -1,0 +1,102 @@
+<h1><code>smol_build.sh</code> - A minimal HTML templating system</h1>
+
+<dt>October 28th, 2025</dt>
+
+<p>
+	For my own purposes, I have created a very simple "<a target="_blank" href="https://en.wikipedia.org/wiki/Web_template_system">templating engine</a>" to build this website with. Compared to the features outlined in the Wikipedia link, this system hardly feels like it qualifies, but it suits my needs so far just fine.
+</p>
+
+You can check out the repository for this project <a href="https://github.com/co-0p/smol_build.sh" target="_blank">here.</a>
+
+<p>
+	This tool is basically just a simple bash script that descends a project directory tree, along the way, it stacks layers of templating, generates <code>.html</code> files using the templating, and copies other static files to a build directory tree of the same structure.
+</p>
+
+<h2>The name</h2>
+<p>
+	If you don't know what "smol" means, it's just a cutsie play on "small" that showed up around 2015. It hasn't made it into the dictionary (yet), but Merriam-Webster defines the slang as meaning <a href="https://www.merriam-webster.com/slang/smol" target="_blank">"adorably small"</a>, and pronounced "smawl". (I know this flavour of slang or naming really aggravates some folks. If it does you, then I apologize, but also, stop being such a smol bawbe).
+</p>
+
+  <script type="text/javascript" src="https://ssl.gstatic.com/trends_nrtr/4284_RC01/embed_loader.js"></script>
+  <script type="text/javascript">
+    trends.embed.renderExploreWidget("TIMESERIES", {"comparisonItem":[{"keyword":"smol","geo":"","time":"2004-01-01 2026-01-03"}],"category":0,"property":""}, {"exploreQuery":"date=all&q=smol&hl=en-CA","guestPath":"https://trends.google.com:443/trends/embed/"});
+  </script>
+
+
+<h2>How it works</h2>
+<p>
+	If you're still with me, then I'll quickly summarize how the tool works. You run the command with two options <code>./smol_build.sh [input_dir] [build_dir]</code>. The command will recursively descend the input directory, every time it comes across a file named <code>smol_template.html</code> It will inject the contents into any previous templating at the point of the <code>&lt;smol_content/&gt;</code> tag. Any other <code>.html</code> files will have their content injected at this same tag and then an output file will be created in the build directory. Any other non html files in the input directory will be copied to the corresponding spot in the build directory.
+</p>
+
+<h3>For example:</h3>
+
+<p><strong>For a file structure like this:</strong></p>
+<pre>
+- /site/
+ 	- index.html
+ 	- smol_template.html
+ 	- /blog/
+ 		- smol_template.html
+ 		- index.html
+ 		- post_1.html
+</pre>
+<p><strong>...where the files are as follows:</strong></p>
+<p>/site/smol_template.html</p>
+<pre>&lt;html&gt;
+	&lt;h1&gt;Site Title&lt;/h1&gt;
+	&lt;smol_content/&gt;
+&lt;/html&gt;
+</pre>
+<p>/site/index.html</p>
+<pre>&lt;p&gt; Welcome to my home page!&lt;/p&gt;
+</pre>
+<p>/site/blog/smol_template.html</p>
+<pre>&lt;h2&gt;Here is my blog&lt;/h2&gt;
+&lt;smol_content/&gt;
+</pre>
+<p>/site/blog/index.html</p>
+<pre>&lt;h3&gt;Posts:&lt;/h3&gt;
+&lt;ul&gt;
+	&lt;li&gt; &lt;a href=&quot;/blog/post1.html&quot;&gt; Post 1 &lt;/a&gt; &lt;li&gt;
+&lt;/ul&gt;
+</pre>
+<p>/site/blog/post_1.html</p>
+<pre>&lt;h3&gt;Post #1&lt;/h3&gt;
+&lt;p&gt; Wow isn&#39;t this an interesting post!!!&lt;/p&gt;
+</pre>
+<p><strong>...the command <code>./smol_build.sh site build</code> would build the following:</strong></p>
+<p>/build/index.html</p>
+<pre>&lt;html&gt;
+	&lt;h1&gt;Site Title&lt;/h1&gt;
+	&lt;p&gt; Welcome to my home page!&lt;/p&gt;
+&lt;/html&gt;
+</pre>
+<p>/build/blog/index.html</p>
+<pre>&lt;html&gt;
+	&lt;h1&gt;Site Title&lt;/h1&gt;
+	&lt;h2&gt;Here is my blog&lt;/h2&gt;
+	&lt;h3&gt;Posts:&lt;/h3&gt;
+	&lt;ul&gt;
+		&lt;li&gt; &lt;a href=&quot;/blog/post1.html&quot;&gt; Post 1 &lt;/a&gt; &lt;li&gt;
+	&lt;/ul&gt;
+&lt;/html&gt;
+</pre>
+<p>/build/blog/post_1.html</p>
+<pre>&lt;html&gt;
+	&lt;h1&gt;Site Title&lt;/h1&gt;
+	&lt;h2&gt;Here is my blog&lt;/h2&gt;
+	&lt;h3&gt;Post #1&lt;/h3&gt;
+	&lt;p&gt; Wow isn&#39;t this an interesting post!!!&lt;/p&gt;
+&lt;/html&gt;
+</pre>
+
+<p>
+	Please note that the above example is accurate as of this posting, but check out the <a href="https://github.com/co-0p/smol_build.sh" target="_blank">GitHub readme</a> for more up to date documentation.
+</p>
+
+<h3>La Fin.</h3>
+
+<p>
+	That's basically all there is to it, I hope to add a few more features in the future, such as a quiet mode, better validation of the option, and handling of CSS. If you end up using this for your own project, I'd love to hear from you. The best way to get in touch is probably <a target="_blank" href="https://x.com/c0_0p_">Twitter</a>.
+</p>
+
