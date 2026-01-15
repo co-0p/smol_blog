@@ -77,5 +77,25 @@ pre {
 footer {
 	margin:5rem auto;
 	opacity: 0.4;
-	width: fit-content;
+	width: 100%;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
+
+#footer_links {
+	margin-top: 1em;
+	width: 100%;
+	display: flex;
+	justify-content: center;
+	gap: 2rem;
+}
+
+a > #footer_links {
+	display: block;
+}
+
+.small_right {
+	margin-left:auto;
+	font-size: 0.8em;
 }

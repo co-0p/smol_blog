@@ -22,12 +22,25 @@
 		<smol_content/>
 
 		<footer>
-			&#169;oop
+			<div>&#169;oop</div>
+			<div id="footer_links">
+				<a href="/blog/feed.xml">Blog RSS feed</a>
+				<a href="/">Home</a>
+			</div>
 		</footer>
 
 
 	<script>
-	t=setTimeout;l=document.getElementsByTagName('logo')[0];b=()=>{t(()=>{l.textContent="c-_-p";t(()=>{l.textContent="c0_0p"},250);b()},Math.random()*15000+1500)};b();
+		t=setTimeout;
+		l=document.getElementsByTagName('logo')[0];
+		b=()=>{
+			t(()=>{
+				l.textContent="c-_-p";
+				t(()=>{l.textContent="c0_0p"},250);
+				b();
+			}, Math.random()*15000+1500)
+		};
+		b();
 	</script>
 
 	</body>

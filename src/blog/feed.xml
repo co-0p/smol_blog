@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<rss version="2.0">
+              
+<channel>
+  <title>c0-0p's Blog</title>
+  <link>https://c0-0p.io/blog</link>
+  <description>Blog about code and silly thing</description>
+
+  <item>
+    <title>smol_build.sh - A minimal HTML templating system</title>
+    <pubDate>Sat, 3 Jan 2026</pubDate>
+    <link>https://c0-0p.io/blog/smol_build.sh.html</link>
+    <description>The simple custom bash script I use to build my website and blog.</description>
+  </item>
+
+  <item>
+    <title>Hello, welcome to my blog</title>
+    <pubDate>Thu, 8 Oct 2025</pubDate>
+    <link>https://c0-0p.io/blog/hello.html</link>
+    <description>A not very interesting hello world blog post.</description>
+  </item>
+
+</channel>
+</rss>
